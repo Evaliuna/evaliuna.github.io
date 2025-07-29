@@ -1,4 +1,4 @@
-/* Reset & Base Styles */
+/* Basic Reset & Font */
 * {
   margin: 0;
   padding: 0;
@@ -8,112 +8,90 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   line-height: 1.6;
-  transition: background-color 0.4s, color 0.4s;
+  background-color: #f5f7fa;
+  color: #333;
   padding: 20px;
+  transition: all 0.3s ease;
 }
 
-header, section, footer {
-  margin-bottom: 40px;
+.dark-theme {
+  background-color: #1a1a2e;
+  color: #f0f0f0;
 }
 
-h1, h2 {
-  color: var(--heading-color);
-  margin-bottom: 10px;
-}
-
-a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Theme Variables */
-:root {
-  --bg-color: #fefefe;
-  --text-color: #111;
-  --heading-color: #2b2b2b;
-  --link-color: #0066cc;
-  --box-bg: #ffffff;
-  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-body.dark {
-  --bg-color: #111;
-  --text-color: #f0f0f0;
-  --heading-color: #ffffff;
-  --link-color: #66ccff;
-  --box-bg: #1c1c1c;
-  --shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
-}
-
-body.pastel {
-  --bg-color: #fef6f9;
-  --text-color: #4b4b4b;
-  --heading-color: #cb3c66;
-  --link-color: #b34079;
-  --box-bg: #ffffff;
-  --shadow: 0 4px 8px rgba(180, 64, 121, 0.1);
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* Layout */
-.container {
-  max-width: 850px;
-  margin: auto;
-  padding: 30px;
-  background: var(--box-bg);
-  border-radius: 12px;
-  box-shadow: var(--shadow);
+header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 header h1 {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
+  color: #007acc;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+header p {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  color: #555;
+}
+
+button {
+  background-color: #007acc;
+  color: white;
+  padding: 8px 16px;
   margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-nav a {
-  margin-right: 15px;
-  font-weight: 500;
+button:hover {
+  background-color: #005f99;
 }
 
 section {
-  padding-top: 10px;
-  border-top: 1px solid #ccc;
+  margin: 30px auto;
+  max-width: 700px;
+}
+
+section h2 {
+  font-size: 1.5rem;
+  color: #007acc;
+  margin-bottom: 10px;
 }
 
 ul {
-  list-style-type: square;
-  margin-left: 20px;
+  list-style-type: disc;
+  padding-left: 20px;
 }
 
-/* Theme Button */
-#theme-toggle {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: var(--link-color);
-  color: #fff;
-  font-weight: bold;
+.profile {
+  text-align: center;
 }
 
-/* Footer */
+.profile img {
+  border-radius: 50%;
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.resume-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.resume-btn:hover {
+  background-color: #388e3c;
+}
+
 footer {
   text-align: center;
+  margin-top: 40px;
   font-size: 0.9rem;
   color: #777;
-  margin-top: 50px;
 }
