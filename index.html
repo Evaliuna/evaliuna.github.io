@@ -1,101 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Evaliuna - Portfolio</title>
+  <title>Evaliuna | Software Engineer Portfolio</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+    * {
+      box-sizing: border-box;
       margin: 0; padding: 0;
-      background: #f0f2f5;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
     }
+
+    body {
+      background: #121212;
+      color: #f0f0f0;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    body.light {
+      background: #f9f9f9;
+      color: #222;
+    }
+
     header {
-      background: #4a90e2;
-      color: white;
-      padding: 20px;
+      background: linear-gradient(90deg, #4a90e2 0%, #007acc 100%);
+      padding: 30px 20px;
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      position: relative;
     }
-    section {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-    h1, h2 {
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
       margin-bottom: 10px;
+      letter-spacing: 3px;
+      color: #fff;
+      text-transform: uppercase;
+      min-height: 48px;
     }
-    .projects {
+
+    header p {
+      font-weight: 300;
+      font-size: 1.2rem;
+      color: #d0d0d0;
+      letter-spacing: 1px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex-grow: 1;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      border-left: 5px solid #4a90e2;
+      padding-left: 15px;
+      font-weight: 700;
+      color: #4a90e2;
+    }
+
+    body.light h2 {
+      color: #007acc;
+      border-color: #007acc;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+
+    ul.skills-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-left: 0;
+    }
+
+    ul.skills-list li {
+      background: #007acc;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 6px rgba(0,122,204,0.6);
+      transition: background 0.3s ease;
+      cursor: default;
+      user-select: none;
+      color: #fff;
+    }
+
+    ul.skills-list li:hover {
+      background: #005fa3;
+    }
+
+    body.light ul.skills-list li {
+      background: #4a90e2;
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(74,144,226,0.6);
+    }
+
+    body.light ul.skills-list li:hover {
+      background: #007acc;
+    }
+
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 25px;
     }
-    .project {
-      background: white;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+
+    .project-card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #ccc;
     }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #eee;
-      margin-top: 40px;
-      font-size: 14px;
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(74,144,226,0.6);
     }
-    a {
+
+    body.light .project-card {
+      background: #fff;
+      color: #222;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    body.light .project-card:hover {
+      box-shadow: 0 12px 30px rgba(74,144,226,0.3);
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: #4a90e2;
+    }
+
+    body.light .project-title {
+      color: #007acc;
+    }
+
+    .project-description {
+      flex-grow: 1;
+      font-weight: 300;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .project-links a {
       color: #4a90e2;
       text-decoration: none;
+      font-weight: 500;
+      margin-right: 15px;
+      transition: color 0.3s ease;
     }
-    a:hover {
+
+    .project-links a:hover {
+      color: #74b9ff;
+    }
+
+    body.light .project-links a {
+      color: #007acc;
+    }
+
+    body.light .project-links a:hover {
+      color: #4a90e2;
+    }
+
+    footer {
+      background: #111;
+      color: #666;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    body.light footer {
+      background: #eee;
+      color: #555;
+    }
+
+    a.contact-link {
+      color: #4a90e2;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a.contact-link:hover {
+      color: #74b9ff;
       text-decoration: underline;
+    }
+
+    body.light a.contact-link {
+      color: #007acc;
+    }
+
+    body.light a.contact-link:hover {
+      color: #4a90e2;
+    }
+
+    /* Dark/Light toggle button */
+    #toggle-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 20px;
+      width: 50px;
+      height: 28px;
+      cursor: pointer;
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6px;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+
+    #toggle-btn:hover {
+      background: rgba(255,255,255,0.4);
+    }
+
+    #toggle-btn .circle {
+      background: #fff;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    #toggle-btn.light .circle {
+      transform: translateX(22px);
+      background: #007acc;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Evaliuna</h1>
+    <h1 id="typed"></h1>
     <p>Aspiring Software Engineer | BSc in CSE, Daffodil International University</p>
+    <button id="toggle-btn" aria-label="Toggle Dark/Light mode" title="Toggle Dark/Light mode">
+      <div class="circle"></div>
+    </button>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>Hi! I am currently a 2nd year CSE student pursuing my BSc at Daffodil International University. I’m passionate about software development and eager to grow as a software engineer.</p>
-  </section>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am a 2nd-year Computer Science student at Daffodil International University, passionate about software development and eager to build a career as a software engineer. I enjoy solving problems, learning new technologies, and creating useful projects.
+      </p>
+    </section>
 
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>Programming Languages: Python, Java, C++</li>
-      <li>Web Development: HTML, CSS, JavaScript</li>
-      <li>Tools & Technologies: Git, Linux, VS Code</li>
-    </ul>
-  </section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Python</li>
+        <li>Java</li>
+        <li>C++</li>
+        <li>JavaScript</li>
+        <li>HTML &amp; CSS</li>
+        <li>Git &amp; GitHub</li>
+        <li>Linux</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>Project 1 - Portfolio Website</h3>
-        <p>A personal portfolio website built with HTML, CSS, and JavaScript.</p>
-        <a href="#" target="_blank">View Code</a>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-title">Personal Portfolio Website</div>
+          <div class="project-description">
+            A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my projects and skills.
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/evaliuna/portfolio" target="_blank" rel="noopener">Code</a>
+            <a href="https://evaliuna.github.io" target="_blank" rel="noopener">Live</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title">ToDo List App</div>
+          <div class="project-description">
+            A simple and interactive ToDo list web app using vanilla JavaScript to manage daily tasks.
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/evaliuna/todo-app" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
       </div>
-      <div class="project">
-        <h3>Project 2 - ToDo App</h3>
-        <p>A simple ToDo application built with JavaScript.</p>
-        <a href="#" target="_blank">View Code</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/evaliuna" target="_blank">github.com/evaliuna</a></p>
-  </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:your.email@example.com" class="contact-link">your.email@example.com</a></p>
+      <p>GitHub: <a href="https://github.com/evaliuna" target="_blank" class="contact-link">github.com/evaliuna</a></p>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 Evalina. All rights reserved.
+    &copy; 2025 Evaliuna. All rights reserved.
   </footer>
+
+  <script>
+    // Typing effect for header h1
+    const typedText = "Evaliuna";
+    const typedElement = document.getElementById("typed");
+    let index = 0;
+
+    function type() {
+      if(index < typedText.length) {
+        typedElement.textContent += typedText.charAt(index);
+        index++;
+        setTimeout(type, 150);
+      }
+    }
+    type();
+
+    // Dark/light mode toggle
+    const toggleBtn = document.getElementById('toggle-btn');
+    const body = document.body;
+    const circle = toggleBtn.querySelector('.circle');
+
+    // Load mode from localStorage
+    if(localStorage.getItem('mode') === 'light') {
+      body.classList.add('light');
+      toggleBtn.classList.add('light');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light');
+      toggleBtn.classList.toggle('light');
+      // Save preference
+      if(body.classList.contains('light')) {
+        localStorage.setItem('mode', 'light');
+      } else {
+        localStorage.removeItem('mode');
+      }
+    });
+  </script>
 </body>
 </html>
