@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Evaliuna | Software Engineer Portfolio</title>
+  <title>Mosammat Samiea Jahan Eva | Software Engineer Portfolio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
@@ -120,75 +120,51 @@
       background: #007acc;
     }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 25px;
-    }
-
-    .project-card {
-      background: #1e1e1e;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    ul.languages-list {
+      list-style: none;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: #ccc;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-left: 0;
     }
 
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(74,144,226,0.6);
-    }
-
-    body.light .project-card {
-      background: #fff;
-      color: #222;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    }
-
-    body.light .project-card:hover {
-      box-shadow: 0 12px 30px rgba(74,144,226,0.3);
-    }
-
-    .project-title {
-      font-weight: 600;
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-      color: #4a90e2;
-    }
-
-    body.light .project-title {
-      color: #007acc;
-    }
-
-    .project-description {
-      flex-grow: 1;
-      font-weight: 300;
-      font-size: 1rem;
-      margin-bottom: 15px;
-    }
-
-    .project-links a {
-      color: #4a90e2;
-      text-decoration: none;
+    ul.languages-list li {
+      background: #28a745;
+      padding: 6px 16px;
+      border-radius: 20px;
       font-weight: 500;
-      margin-right: 15px;
-      transition: color 0.3s ease;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 6px rgba(40,167,69,0.6);
+      color: #fff;
+      user-select: none;
     }
 
-    .project-links a:hover {
-      color: #74b9ff;
+    body.light ul.languages-list li {
+      background: #3ecf68;
+      box-shadow: 0 2px 6px rgba(62,207,104,0.6);
+      color: #fff;
     }
 
-    body.light .project-links a {
-      color: #007acc;
+    .projects-placeholder {
+      font-style: italic;
+      color: #888;
+      font-weight: 400;
+      font-size: 1.1rem;
     }
 
-    body.light .project-links a:hover {
-      color: #4a90e2;
+    .photo-container {
+      max-width: 220px;
+      margin: 15px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .photo-container img {
+      width: 100%;
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     footer {
@@ -284,59 +260,51 @@
       </p>
     </section>
 
+    <section id="photo">
+      <h2>Photo</h2>
+      <div class="photo-container">
+        <img src="https://via.placeholder.com/220" alt="Mosammat Samiea Jahan Eva" />
+      </div>
+    </section>
+
     <section id="skills">
       <h2>Skills</h2>
       <ul class="skills-list">
-        <li>Python</li>
-        <li>Java</li>
+        <li>C</li>
         <li>C++</li>
-        <li>JavaScript</li>
-        <li>HTML &amp; CSS</li>
-        <li>Git &amp; GitHub</li>
-        <li>Linux</li>
+        <li>Java</li>
+        <li>HTML</li>
+        <li>CSS</li>
+      </ul>
+    </section>
+
+    <section id="languages">
+      <h2>Languages</h2>
+      <ul class="languages-list">
+        <li>English (Intermediate)</li>
+        <li>Bangla (Native)</li>
       </ul>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-title">Personal Portfolio Website</div>
-          <div class="project-description">
-            A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my projects and skills.
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/evaliuna/portfolio" target="_blank" rel="noopener">Code</a>
-            <a href="https://evaliuna.github.io" target="_blank" rel="noopener">Live</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-title">ToDo List App</div>
-          <div class="project-description">
-            A simple and interactive ToDo list web app using vanilla JavaScript to manage daily tasks.
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/evaliuna/todo-app" target="_blank" rel="noopener">Code</a>
-          </div>
-        </div>
-      </div>
+      <p class="projects-placeholder">Projects coming soon...</p>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:your.email@example.com" class="contact-link">your.email@example.com</a></p>
+      <p>Email: <a href="mailto:jahan241-15-182@gmail.com" class="contact-link">jahan241-15-182@gmail.com</a></p>
       <p>GitHub: <a href="https://github.com/evaliuna" target="_blank" class="contact-link">github.com/evaliuna</a></p>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Evaliuna. All rights reserved.
+    &copy; 2025 Mosammat Samiea Jahan Eva. All rights reserved.
   </footer>
 
   <script>
     // Typing effect for header h1
-    const typedText = "Evaliuna";
+    const typedText = "Mosammat Samiea Jahan Eva";
     const typedElement = document.getElementById("typed");
     let index = 0;
 
@@ -352,7 +320,6 @@
     // Dark/light mode toggle
     const toggleBtn = document.getElementById('toggle-btn');
     const body = document.body;
-    const circle = toggleBtn.querySelector('.circle');
 
     // Load mode from localStorage
     if(localStorage.getItem('mode') === 'light') {
