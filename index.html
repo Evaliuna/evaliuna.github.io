@@ -1,342 +1,530 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mosammat Samiea Jahan Eva | Software Engineer Portfolio</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-
-    * {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: #121212;
-      color: #f0f0f0;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: background 0.4s, color 0.4s;
-    }
-
-    body.light {
-      background: #f9f9f9;
-      color: #222;
-    }
-
-    header {
-      background: linear-gradient(90deg, #4a90e2 0%, #007acc 100%);
-      padding: 30px 20px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      position: relative;
-    }
-
-    header h1 {
-      font-weight: 700;
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      letter-spacing: 3px;
-      color: #fff;
-      text-transform: uppercase;
-      min-height: 48px;
-    }
-
-    header p {
-      font-weight: 300;
-      font-size: 1.2rem;
-      color: #d0d0d0;
-      letter-spacing: 1px;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-      flex-grow: 1;
-    }
-
-    section {
-      margin-bottom: 60px;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-      border-left: 5px solid #4a90e2;
-      padding-left: 15px;
-      font-weight: 700;
-      color: #4a90e2;
-    }
-
-    body.light h2 {
-      color: #007acc;
-      border-color: #007acc;
-    }
-
-    p {
-      font-weight: 300;
-      font-size: 1.1rem;
-      max-width: 700px;
-    }
-
-    ul.skills-list {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding-left: 0;
-    }
-
-    ul.skills-list li {
-      background: #007acc;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-weight: 500;
-      font-size: 0.95rem;
-      box-shadow: 0 2px 6px rgba(0,122,204,0.6);
-      transition: background 0.3s ease;
-      cursor: default;
-      user-select: none;
-      color: #fff;
-    }
-
-    ul.skills-list li:hover {
-      background: #005fa3;
-    }
-
-    body.light ul.skills-list li {
-      background: #4a90e2;
-      color: #fff;
-      box-shadow: 0 2px 6px rgba(74,144,226,0.6);
-    }
-
-    body.light ul.skills-list li:hover {
-      background: #007acc;
-    }
-
-    ul.languages-list {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding-left: 0;
-    }
-
-    ul.languages-list li {
-      background: #28a745;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-weight: 500;
-      font-size: 0.95rem;
-      box-shadow: 0 2px 6px rgba(40,167,69,0.6);
-      color: #fff;
-      user-select: none;
-    }
-
-    body.light ul.languages-list li {
-      background: #3ecf68;
-      box-shadow: 0 2px 6px rgba(62,207,104,0.6);
-      color: #fff;
-    }
-
-    .projects-placeholder {
-      font-style: italic;
-      color: #888;
-      font-weight: 400;
-      font-size: 1.1rem;
-    }
-
-    .photo-container {
-      max-width: 220px;
-      margin: 15px auto;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-
-    .photo-container img {
-      width: 100%;
-      display: block;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    footer {
-      background: #111;
-      color: #666;
-      text-align: center;
-      padding: 15px 10px;
-      font-size: 0.9rem;
-      user-select: none;
-    }
-
-    body.light footer {
-      background: #eee;
-      color: #555;
-    }
-
-    a.contact-link {
-      color: #4a90e2;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    a.contact-link:hover {
-      color: #74b9ff;
-      text-decoration: underline;
-    }
-
-    body.light a.contact-link {
-      color: #007acc;
-    }
-
-    body.light a.contact-link:hover {
-      color: #4a90e2;
-    }
-
-    /* Dark/Light toggle button */
-    #toggle-btn {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      background: rgba(255,255,255,0.2);
-      border: none;
-      border-radius: 20px;
-      width: 50px;
-      height: 28px;
-      cursor: pointer;
-      outline: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6px;
-      transition: background 0.3s ease;
-      user-select: none;
-    }
-
-    #toggle-btn:hover {
-      background: rgba(255,255,255,0.4);
-    }
-
-    #toggle-btn .circle {
-      background: #fff;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    #toggle-btn.light .circle {
-      transform: translateX(22px);
-      background: #007acc;
-    }
-
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1 id="typed"></h1>
-    <p>Aspiring Software Engineer | BSc in CSE, Daffodil International University</p>
-    <button id="toggle-btn" aria-label="Toggle Dark/Light mode" title="Toggle Dark/Light mode">
-      <div class="circle"></div>
-    </button>
-  </header>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </div>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am a 2nd-year Computer Science student at Daffodil International University, passionate about software development and eager to build a career as a software engineer. I enjoy solving problems, learning new technologies, and creating useful projects.
-      </p>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles-js"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">SE<span>.</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#career">Career Plan</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h4 class="greeting">Hello, I'm</h4>
+                <h1 class="name"><span class="highlight">Your Name</span></h1>
+                <h2 class="title">Software <span class="typing"></span></h2>
+                <p class="description">I build exceptional digital experiences with clean, efficient code and innovative solutions.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn primary">Hire Me</a>
+                    <a href="#projects" class="btn secondary">View Projects</a>
+                    <a href="#" class="btn tertiary download-resume">
+                        <i class="fas fa-download"></i> Resume
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-stack-overflow"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="photo-container">
+                    <div class="circle-animation"></div>
+                    <div class="line-animation"></div>
+                    <img src="profile.jpg" alt="Your Name" class="profile-photo">
+                </div>
+                <div class="tech-stack">
+                    <div class="stack-item" data-tooltip="React">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                    </div>
+                    <div class="stack-item" data-tooltip="Node.js">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                    </div>
+                    <div class="stack-item" data-tooltip="Python">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                    </div>
+                    <div class="stack-item" data-tooltip="AWS">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="photo">
-      <h2>Photo</h2>
-      <div class="photo-container">
-        <img src="https://via.placeholder.com/220" alt="Mosammat Samiea Jahan Eva" />
-      </div>
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="glow-effect"></div>
+                    <img src="profile-about.jpg" alt="About Me">
+                </div>
+                <div class="about-text">
+                    <h3>Software Engineer & Problem Solver</h3>
+                    <p>I specialize in building robust, scalable applications with modern technologies. With a strong foundation in computer science principles and hands-on experience in full-stack development, I create solutions that are both technically sound and user-friendly.</p>
+                    
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span>Name:</span>
+                            <p>Your Name</p>
+                        </div>
+                        <div class="detail-item">
+                            <span>Email:</span>
+                            <p>your.email@example.com</p>
+                        </div>
+                        <div class="detail-item">
+                            <span>Education:</span>
+                            <p>Computer Science Degree</p>
+                        </div>
+                        <div class="detail-item">
+                            <span>Experience:</span>
+                            <p>X+ Years</p>
+                        </div>
+                    </div>
+                    
+                    <div class="coding-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="100">0</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="50">0</div>
+                            <div class="stat-label">Clients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="10000">0</div>
+                            <div class="stat-label">Lines of Code</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>C</li>
-        <li>C++</li>
-        <li>Java</li>
-        <li>HTML</li>
-        <li>CSS</li>
-      </ul>
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical <span>Skills</span></h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Frontend</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>React.js</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level react"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>JavaScript/TypeScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level javascript"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level html-css"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Node.js</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level node"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level python"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>SQL/NoSQL</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level database"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & More</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Git/GitHub</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level git"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>AWS</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level aws"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Docker</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level docker"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="languages">
-      <h2>Languages</h2>
-      <ul class="languages-list">
-        <li>English (Intermediate)</li>
-        <li>Bangla (Native)</li>
-      </ul>
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My <span>Projects</span></h2>
+            <div class="project-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Apps</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="ai">AI/ML</button>
+                <button class="filter-btn" data-filter="opensource">Open Source</button>
+            </div>
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 1">
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-stack e-commerce solution with React, Node.js, and MongoDB</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 2">
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Fitness Tracker App</h3>
+                        <p>Cross-platform mobile app for fitness tracking with React Native</p>
+                        <div class="project-tech">
+                            <span>React Native</span>
+                            <span>Firebase</span>
+                            <span>Redux</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1677442135136-760c813a743f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Project 3">
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>AI Content Moderator</h3>
+                        <p>Machine learning model for automated content moderation</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>NLP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card" data-category="opensource">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 4">
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Dev Tools Library</h3>
+                        <p>Open source collection of developer utilities and components</p>
+                        <div class="project-tech">
+                            <span>TypeScript</span>
+                            <span>Jest</span>
+                            <span>Webpack</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Project 5">
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Management Dashboard</h3>
+                        <p>Real-time collaborative project management tool</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>Node.js</span>
+                            <span>WebSockets</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1655720828013-97c086a8d8b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Project 6">
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Predictive Analytics Engine</h3>
+                        <p>Business intelligence tool with predictive capabilities</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>PyTorch</span>
+                            <span>D3.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <p class="projects-placeholder">Projects coming soon...</p>
+    <section id="career" class="career">
+        <div class="container">
+            <h2 class="section-title">Career <span>Path</span></h2>
+            <div class="career-container">
+                <div class="career-visualization">
+                    <div class="path-line"></div>
+                    <div class="milestone current">
+                        <div class="milestone-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="milestone-content">
+                            <h3>Software Engineer</h3>
+                            <span class="date">2021 - Present</span>
+                            <p>Developing full-stack applications, optimizing performance, and implementing new features.</p>
+                        </div>
+                    </div>
+                    <div class="milestone next">
+                        <div class="milestone-icon"><i class="fas fa-chess-queen"></i></div>
+                        <div class="milestone-content">
+                            <h3>Senior Engineer</h3>
+                            <span class="date">2024 - 2026</span>
+                            <p>Leading technical projects, mentoring junior developers, and making architectural decisions.</p>
+                        </div>
+                    </div>
+                    <div class="milestone future">
+                        <div class="milestone-icon"><i class="fas fa-users"></i></div>
+                        <div class="milestone-content">
+                            <h3>Engineering Manager</h3>
+                            <span class="date">2026 - 2028</span>
+                            <p>Overseeing engineering teams, coordinating cross-functional projects, and strategic planning.</p>
+                        </div>
+                    </div>
+                    <div class="milestone future">
+                        <div class="milestone-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="milestone-content">
+                            <h3>CTO/VP Engineering</h3>
+                            <span class="date">2028+</span>
+                            <p>Setting technical vision, driving innovation, and leading engineering organization.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="learning-goals">
+                    <h3>Current Learning Goals</h3>
+                    <div class="goals-grid">
+                        <div class="goal-card">
+                            <div class="goal-icon"><i class="fab fa-react"></i></div>
+                            <h4>Advanced React Patterns</h4>
+                            <p>Mastering performance optimization and state management at scale</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="goal-card">
+                            <div class="goal-icon"><i class="fas fa-brain"></i></div>
+                            <h4>Machine Learning</h4>
+                            <p>Building practical ML applications with Python</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        <div class="goal-card">
+                            <div class="goal-icon"><i class="fas fa-cloud"></i></div>
+                            <h4>Cloud Architecture</h4>
+                            <p>AWS Certified Solutions Architect preparation</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        <div class="goal-card">
+                            <div class="goal-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <h4>Technical Leadership</h4>
+                            <p>Developing mentorship and project leadership skills</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:jahan241-15-182@gmail.com" class="contact-link">jahan241-15-182@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/evaliuna" target="_blank" class="contact-link">github.com/evaliuna</a></p>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In <span>Touch</span></h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's talk about your project</h3>
+                    <p>I'm currently available for freelance work or full-time positions. Feel free to reach out!</p>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>your.email@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (123) 456-7890</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>San Francisco, CA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    &copy; 2025 Mosammat Samiea Jahan Eva. All rights reserved.
-  </footer>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">SE<span>.</span></div>
+                <p>Building the future, one line of code at a time.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Your Name. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-  <script>
-    // Typing effect for header h1
-    const typedText = "Mosammat Samiea Jahan Eva";
-    const typedElement = document.getElementById("typed");
-    let index = 0;
-
-    function type() {
-      if(index < typedText.length) {
-        typedElement.textContent += typedText.charAt(index);
-        index++;
-        setTimeout(type, 150);
-      }
-    }
-    type();
-
-    // Dark/light mode toggle
-    const toggleBtn = document.getElementById('toggle-btn');
-    const body = document.body;
-
-    // Load mode from localStorage
-    if(localStorage.getItem('mode') === 'light') {
-      body.classList.add('light');
-      toggleBtn.classList.add('light');
-    }
-
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('light');
-      toggleBtn.classList.toggle('light');
-      // Save preference
-      if(body.classList.contains('light')) {
-        localStorage.setItem('mode', 'light');
-      } else {
-        localStorage.removeItem('mode');
-      }
-    });
-  </script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
