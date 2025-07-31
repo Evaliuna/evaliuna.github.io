@@ -334,20 +334,21 @@ nav ul li a:hover::after {
 .greeting {
     font-size: 1.2rem;
     color: var(--primary-color);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-weight: 600;
+    display: block;
 }
 
 .hero-content .name {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
-    line-height: 1.2;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    line-height: 1.1;
     font-weight: 800;
 }
 
 .hero-content .title {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
     color: var(--text-light);
     font-weight: 600;
 }
