@@ -239,6 +239,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    height: 80px;
     z-index: 1000;
     background-color: var(--nav-bg);
     backdrop-filter: blur(10px);
@@ -310,12 +311,14 @@ nav ul li a:hover::after {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: 80px;
     position: relative;
     overflow: hidden;
+    margin-top: 0;
+    box-sizing: border-box; 
 }
 
 .hero .container {
@@ -1242,7 +1245,10 @@ footer p {
         right: 60px; /* Positions left of hamburger */
         top: 25px;
     }
-    
+     .hero {
+        padding-top: 70px;    /* Reduced spacing for mobile */
+        min-height: calc(100vh - 70px);
+    }
     /* Hero Text Adjustments */
     .hero .name {
         font-size: 2.2rem; /* Reduced from 2.5rem */
@@ -1294,7 +1300,10 @@ footer p {
         width: 40px;
         height: 40px;
     }
-    
+    .hero {
+        padding-top: 60px;    /* Even smaller for phones */
+        min-height: calc(100vh - 60px);
+    }
     /* Hero Micro-adjustments */
     .hero .name {
         font-size: 1.8rem; /* Reduced from 2rem */
