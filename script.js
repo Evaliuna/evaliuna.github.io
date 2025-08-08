@@ -16,38 +16,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme') || 'light';
     html.setAttribute('data-theme', savedTheme);
-    
-    // Mobile Menu Toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav ul');
-    
-    menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('active');
-        this.querySelector('i').classList.toggle('fa-times');
-        this.querySelector('i').classList.toggle('fa-bars');
-    });
-    
-    // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                nav.classList.remove('active');
-                menuToggle.querySelector('i').classList.remove('fa-times');
-                menuToggle.querySelector('i').classList.add('fa-bars');
-            }
-        });
-    });
-    
+
     // Typing Animation
     const typed = new Typed('.typing', {
-        strings: ['Java Developer', 'Spring Boot Engineer', 'Backend Specialist', 'Problem Solver'],
+        strings: ['Software Engineer', 'Full-Stack Developer', 'Problem Solver'],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
-    
-    // Smooth Scrolling for Anchor Links
+
+        // Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -157,3 +135,54 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
 });
+/*
+document.addEventListener('DOMContentLoaded', function() {
+    // Theme Toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+    
+    themeToggle.addEventListener('click', function() {
+        if (html.getAttribute('data-theme') === 'dark') {
+            html.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        } else {
+            html.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav ul');
+    
+    menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+        this.querySelector('i').classList.toggle('fa-times');
+        this.querySelector('i').classList.toggle('fa-bars');
+    });
+    
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                nav.classList.remove('active');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
+    });
+    
+    // Typing Animation
+    const typed = new Typed('.typing', {
+        strings: ['Java Developer', 'Spring Boot Engineer', 'Backend Specialist', 'Problem Solver'],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+    });
+    */
+
