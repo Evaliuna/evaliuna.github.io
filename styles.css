@@ -384,32 +384,36 @@ nav ul li a:hover::after {
 
 .photo-container {
     position: relative;
-    width: auto; /* Flexible width */
-    height: auto; /* Flexible height */
-    display: inline-block; /* Fits content */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
+    padding: 30px; /* Creates space for animations */
 }
 
 .profile-photo {
-    width: auto; /* Natural width */
-    height: 350px; /* Your desired length */
+    height: 350px; /* Fixed height you want */
+    width: auto; /* Maintains aspect ratio */
     border-radius: 20px;
     position: relative;
     z-index: 10;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
     animation: float 6s ease-in-out infinite;
     border: 5px solid var(--card-bg);
-    object-fit: contain; /* Prevents cropping */
+    object-fit: contain;
     background: transparent;
+    /* Centers the photo vertically in container */
+    margin-top: 0;
+    transform: translateY(0);
 }
 
-/* Updated Animations (now position-based) */
+/* Animation elements now track photo position */
 .circle-animation {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 110%; /* Relative to photo */
-    height: 110%;
+    width: calc(100% + 40px); /* Extends beyond photo */
+    height: calc(100% + 40px);
     transform: translate(-50%, -50%);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
@@ -424,19 +428,26 @@ nav ul li a:hover::after {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 120%;
-    height: 120%;
+    width: calc(100% + 60px);
+    height: calc(100% + 60px);
     transform: translate(-50%, -50%);
     border: 2px dashed var(--primary-color);
     border-radius: 25px;
     z-index: 0;
-    animation: rotate 30s linear infinite;
+    animation: 
+        rotate 30s linear infinite,
+        pulse 3s ease-in-out infinite;
     opacity: 0.3;
 }
-/* Improved Animations */
+
+/* Updated float animation to prevent drifting */
 @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0.5deg); }
-    50% { transform: translateY(-15px) rotate(-0.5deg); }
+    0%, 100% { 
+        transform: translateY(0) translateX(0);
+    }
+    50% { 
+        transform: translateY(-15px) translateX(5px); 
+    }
 }
 
 @keyframes morph {
@@ -449,10 +460,10 @@ nav ul li a:hover::after {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
-
+/* New pulse animation for line */
 @keyframes pulse {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 0.35; transform: scale(1.02); }
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.5; }
 }
 
 .about-content {
