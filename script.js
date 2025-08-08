@@ -16,7 +16,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme') || 'light';
     html.setAttribute('data-theme', savedTheme);
-
+    
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav ul');
+    
+    menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+        this.querySelector('i').classList.toggle('fa-times');
+        this.querySelector('i').classList.toggle('fa-bars');
+    });
+    
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                nav.classList.remove('active');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+            }
+        });
+    });
+    
     // Typing Animation
     const typed = new Typed('.typing', {
         strings: ['Software Engineer', 'Full-Stack Developer', 'Problem Solver'],
@@ -24,8 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         backSpeed: 60,
         loop: true
     });
-
-        // Smooth Scrolling for Anchor Links
+    
+    // Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -52,61 +74,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Animate Stats Counting
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    function animateStats() {
-        statNumbers.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-count'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            
-            let current = 0;
-            const increment = () => {
-                current += step;
-                if (current < target) {
-                    stat.textContent = Math.floor(current);
-                    requestAnimationFrame(increment);
-                } else {
-                    stat.textContent = target;
-                }
-            };
-            
-            increment();
-        });
-    }
-    
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (entry.target.classList.contains('skills-container')) {
-                    animateSkillBars();
-                } else if (entry.target.classList.contains('coding-stats')) {
-                    animateStats();
-                }
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    // Observe sections
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-    
-    // Animate Skill Bars
-    function animateSkillBars() {
-        const skillBars = document.querySelectorAll('.skill-level');
-        
-        skillBars.forEach(bar => {
-            const width = bar.parentElement.querySelector('.skill-info span:last-child').textContent;
-            bar.style.width = '0';
-            
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 100);
+    // Resume Download
+    const downloadBtn = document.querySelector('.download-resume');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Downloading resume...');
+            // window.location.href = 'path-to-your-resume.pdf';
         });
     }
     
@@ -135,54 +109,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
 });
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    // Theme Toggle
-    const themeToggle = document.querySelector('.theme-toggle');
-    const html = document.documentElement;
-    
-    themeToggle.addEventListener('click', function() {
-        if (html.getAttribute('data-theme') === 'dark') {
-            html.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        } else {
-            html.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-    
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', savedTheme);
-    
-    // Mobile Menu Toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav ul');
-    
-    menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('active');
-        this.querySelector('i').classList.toggle('fa-times');
-        this.querySelector('i').classList.toggle('fa-bars');
-    });
-    
-    // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                nav.classList.remove('active');
-                menuToggle.querySelector('i').classList.remove('fa-times');
-                menuToggle.querySelector('i').classList.add('fa-bars');
-            }
-        });
-    });
-    
-    // Typing Animation
-    const typed = new Typed('.typing', {
-        strings: ['Java Developer', 'Spring Boot Engineer', 'Backend Specialist', 'Problem Solver'],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-    */
-
