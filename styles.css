@@ -387,50 +387,63 @@ nav ul li a:hover::after {
     width: 350px;
     height: 350px;
     margin: 0 auto;
+    overflow: visible; /* Allows animations to extend beyond container */
 }
 
 .profile-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top; /* Focuses on face for portrait photos */
     border-radius: 20px;
     position: relative;
-    z-index: 2;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Higher than animations */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
     animation: float 6s ease-in-out infinite;
     border: 5px solid var(--card-bg);
+    transform-style: preserve-3d; /* Improves animation quality */
+    background: transparent !important; /* Ensures transparency */
 }
 
 .circle-animation {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    z-index: 1;
-    animation: morph 8s ease-in-out infinite, rotate 20s linear infinite;
-    opacity: 0.2;
+    background: linear-gradient(45deg, 
+                var(--primary-color), 
+                var(--secondary-color));
+    z-index: 5;
+    animation: 
+        morph 8s ease-in-out infinite both, 
+        rotate 20s linear infinite reverse;
+    opacity: 0.15;
+    mix-blend-mode: overlay; /* Creates nicer color blending */
+    filter: blur(1px);
 }
 
 .line-animation {
     position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
+    top: -25px;
+    left: -25px;
+    right: -25px;
+    bottom: -25px;
     border: 2px dashed var(--primary-color);
-    border-radius: 20px;
-    z-index: 0;
-    animation: rotate 30s linear infinite;
-    opacity: 0.3;
+    border-radius: 30px;
+    z-index: 3;
+    animation: 
+        rotate 35s linear infinite,
+        pulse 4s ease-in-out infinite;
+    opacity: 0.25;
+    pointer-events: none;
 }
 
+/* Improved Animations */
 @keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
+    0%, 100% { transform: translateY(0) rotate(0.5deg); }
+    50% { transform: translateY(-15px) rotate(-0.5deg); }
 }
 
 @keyframes morph {
@@ -442,6 +455,11 @@ nav ul li a:hover::after {
 @keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(1.02); }
 }
 
 .about-content {
