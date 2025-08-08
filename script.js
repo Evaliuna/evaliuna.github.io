@@ -41,34 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Typing Animation
     const typed = new Typed('.typing', {
-        strings: ['Engineer', 'Developer', 'Architect', 'Problem Solver'],
+        strings: ['Java Developer', 'Spring Boot Engineer', 'Backend Specialist', 'Problem Solver'],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
-    });
-    
-    // Project Filter
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterBtns.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const filterValue = this.getAttribute('data-filter');
-            
-            projectCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
     });
     
     // Smooth Scrolling for Anchor Links
@@ -93,9 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Here you would typically send the form data to a server
-            // For demonstration, we'll just show an alert
             alert('Thank you for your message! I will get back to you soon.');
             this.reset();
         });
@@ -107,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function animateStats() {
         statNumbers.forEach(stat => {
             const target = parseInt(stat.getAttribute('data-count'));
-            const duration = 2000; // Animation duration in ms
-            const step = target / (duration / 16); // 60fps
+            const duration = 2000;
+            const step = target / (duration / 16);
             
             let current = 0;
             const increment = () => {
@@ -164,11 +137,11 @@ document.addEventListener('DOMContentLoaded', function() {
         particlesJS('particles-js', {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#4361ee" },
+                color: { value: "#6e45e2" },
                 shape: { type: "circle" },
                 opacity: { value: 0.5, random: true },
                 size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: "#4361ee", opacity: 0.4, width: 1 },
+                line_linked: { enable: true, distance: 150, color: "#6e45e2", opacity: 0.4, width: 1 },
                 move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
             },
             interactivity: {
@@ -181,14 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Resume Download
-    const downloadBtn = document.querySelector('.download-resume');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            // In a real implementation, this would download your resume PDF
-            alert('Downloading resume...');
-            // window.location.href = 'path-to-your-resume.pdf';
-        });
-    }
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
 });
