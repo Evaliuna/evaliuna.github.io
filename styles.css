@@ -330,7 +330,7 @@ nav {
 
 /* ===== CERTIFICATES SECTION ===== */
 #certificates {
-  background: var(--light);
+  background: var(--white);
 }
 
 .certificates-grid {
@@ -345,11 +345,13 @@ nav {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 .certificate-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 .certificate-card img {
@@ -372,6 +374,23 @@ nav {
   margin-bottom: 15px;
   color: var(--dark);
   font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.certificate-info .btn {
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 0.8rem;
+}
+
+/* Dark mode styles */
+body.dark-mode .certificate-card {
+  background: var(--white);
+  border-color: rgba(255,255,255,0.1);
+}
+
+body.dark-mode .certificate-info p {
+  color: var(--dark);
 }
 
 /* ===== PROJECTS SECTION ===== */
