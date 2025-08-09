@@ -9,7 +9,7 @@
   --shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* ===== BASE STYLES WITH FIXES ===== */
+/* ===== BASE STYLES ===== */
 * {
   margin: 0;
   padding: 0;
@@ -18,29 +18,12 @@
 }
 
 body {
-  padding-top: 80px; /* Fix for header overlap */
+  padding-top: 80px;
   background: var(--light);
   color: var(--dark);
   line-height: 1.6;
   overflow-x: hidden;
   transition: background 0.4s ease, color 0.4s ease;
-}
-
-
-/* ===== KEEP ALL YOUR EXISTING STYLES BELOW ===== */
-/* (About, Projects, Certificates, Contact sections) */
-/* (Dark mode styles) */
-/* (Animations keyframes) */
-
-/* ===== ANIMATIONS ===== */
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
-}
-
-@keyframes rotate {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .container {
@@ -180,7 +163,7 @@ nav {
 
 /* ===== HERO SECTION ===== */
 #hero {
-  min-height: calc(100vh - 80px); /* Accounts for header */
+  min-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
@@ -198,50 +181,49 @@ nav {
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
-    color: var(--dark);
-    line-height: 1.2;
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  color: var(--dark);
+  line-height: 1.2;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: var(--primary);
-    font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--primary);
+  font-weight: 400;
 }
 
 .hero-description {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    color: var(--dark);
-    line-height: 1.6;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: var(--dark);
+  line-height: 1.6;
 }
 
 .hero-buttons {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .btn-primary {
-    background: var(--primary);
-    color: white;
+  background: var(--primary);
+  color: white;
 }
 
 .btn-primary:hover {
-    background: var(--secondary);
+  background: var(--secondary);
 }
 
 .hero-photo {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .photo-container {
   position: relative;
   width: 380px;
   height: 380px;
-  margin-left: auto; /* Pushes photo to right */
 }
 
 .profile-photo {
@@ -250,22 +232,25 @@ nav {
   object-fit: cover;
   border-radius: 20px;
   position: relative;
-  z-index: 10; /* Above animations */
+  z-index: 10;
   border: 5px solid var(--white);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
   animation: float 6s ease-in-out infinite;
-  transform-origin: center center; /* Fix for animation alignment */
+  transform-origin: center center;
 }
 
-/* Animation positioning fixes */
 .circle-animation {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 110%;
-  height: 110%;
+  width: 100%;
+  height: 100%;
   transform: translate(-50%, -50%) scale(1.1);
-  z-index: 1; /* Below photo */
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  z-index: 1;
+  opacity: 0.15;
+  animation: rotate 20s linear infinite;
 }
 
 .line-animation {
@@ -275,75 +260,11 @@ nav {
   width: calc(100% + 40px);
   height: calc(100% + 40px);
   transform: translate(-50%, -50%);
-  z-index: 2; /* Between circle and photo */
-}
-
-/* ===== MOBILE FIXES ===== */
-@media (max-width: 768px) {
-  body {
-    padding-top: 60px; /* Adjusted header height */
-  }
-  
-  header {
-    height: 60px;
-  }
-  
-  .photo-container {
-    width: 280px;
-    height: 280px;
-    margin: 0 auto 40px; /* Center photo on mobile */
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-text {
-        order: 2;
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    .hero-photo {
-        order: 1;
-        justify-content: center;
-        margin-bottom: 40px;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .photo-container {
-        width: 300px;
-        height: 300px;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  color: var(--dark);
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto 30px;
-  color: var(--dark);
+  border: 2px dashed var(--primary);
+  border-radius: 25px;
+  z-index: 2;
+  opacity: 0.2;
+  animation: rotate 30s linear infinite reverse;
 }
 
 /* ===== ABOUT SECTION ===== */
@@ -660,13 +581,39 @@ body.dark-mode .project-tech span {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-text {
+    order: 2;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .hero-photo {
+    order: 1;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .photo-container {
+    width: 300px;
+    height: 300px;
+  }
+}
+
 @media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+  header {
+    height: 60px;
+  }
   .nav-links {
     position: fixed;
-    top: 80px;
+    top: 60px;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 60px);
     background: var(--white);
     flex-direction: column;
     align-items: center;
@@ -675,29 +622,32 @@ body.dark-mode .project-tech span {
     transition: left 0.3s;
     z-index: 999;
   }
-
   .nav-links.active {
     left: 0;
   }
-
   .theme-toggle span {
     display: none;
   }
-
   .menu-toggle {
     display: block;
   }
-
-  .hero-content h1 {
+  .hero-title {
     font-size: 2.5rem;
   }
-
   .photo-container {
     width: 280px;
     height: 280px;
   }
+}
 
-  .about-content, .contact-content {
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  .hero-buttons {
     flex-direction: column;
   }
 }
