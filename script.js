@@ -22,7 +22,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
+// Certificate Modal Functionality
+const certificateCards = document.querySelectorAll('.certificate-card');
+const modal = document.createElement('div');
+modal.className = 'certificate-modal';
+modal.innerHTML = 
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="" alt="Certificate" class="modal-certificate">
+    <div class="modal-info"></div>
+  </div>
+;
+document.body.appendChild(modal);
 
+certificateCards.forEach(card => {
+  card.addEventListener('click', function() {
+    const imgSrc = this.querySelector('img').src;
+    const title = this.querySelector('h3').textContent;
+    const description = this.querySelector('p').textContent;
+    
+    modal.querySelector('.modal-certificate').src = imgSrc;
+    modal.querySelector('.modal-info').innerHTML = 
+      <h3>${title}</h3>
+      <p>${description}</p>
+    ;
+    
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+modal.querySelector('.close-modal').addEventListener('click', function() {
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+});
+
+window.addEventListener('click', function(e) {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+});
 // Animate skill bars on scroll
 const skillBars = document.querySelectorAll('.skill-progress');
 
