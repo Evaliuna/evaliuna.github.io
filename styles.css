@@ -274,6 +274,7 @@ nav {
 }
 
 /* ===== CERTIFICATES SECTION ===== */
+
 .certificates-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -305,6 +306,59 @@ nav {
 .certificate-info h3 {
   margin-bottom: 10px;
   color: var(--primary);
+}
+/* Floating certificate cards animation */
+.certificate-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+.certificate-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Profile photo and social links positioning */
+.hero-photo {
+    position: relative;
+}
+
+.photo-social-links {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    z-index: 10;
+}
+
+/* Dark mode fixes */
+body.dark-mode .hero-title,
+body.dark-mode .hero-subtitle,
+body.dark-mode .hero-description {
+    color: var(--dark) !important;
+}
+
+body.dark-mode .photo-social-links {
+    background: var(--white);
+}
+
+/* Floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Delay animations for each certificate */
+.certificates-grid .certificate-card:nth-child(1) {
+    animation-delay: 0s;
+}
+.certificates-grid .certificate-card:nth-child(2) {
+    animation-delay: 0.5s;
 }
 
 /* ===== PROJECTS SECTION ===== */
