@@ -43,6 +43,31 @@ function isElementInViewport(el) {
 }
 
 // Theme Toggle Functionality
+// Add this to your existing theme toggle functionality
+function updateDarkModeElements() {
+    // Ensure profile name and home section are visible in dark mode
+    if (darkMode) {
+        document.querySelector('.hero-title').style.color = '#f8f9fa';
+        document.querySelector('.hero-subtitle').style.color = '#f8f9fa';
+        document.querySelector('.hero-description').style.color = '#f8f9fa';
+    } else {
+        document.querySelector('.hero-title').style.color = '';
+        document.querySelector('.hero-subtitle').style.color = '';
+        document.querySelector('.hero-description').style.color = '';
+    }
+}
+
+// Update the theme toggle event listener to include this
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    darkMode = !darkMode;
+    localStorage.setItem('darkMode', darkMode);
+    updateToggleIcon();
+    updateDarkModeElements(); // Add this line
+});
+
+// Call this on initial load too
+updateDarkModeElements();
 const themeToggle = document.querySelector('.theme-toggle');
 let darkMode = localStorage.getItem('darkMode') === 'true';
 
