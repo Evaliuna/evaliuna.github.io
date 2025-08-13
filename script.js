@@ -42,38 +42,6 @@ function isElementInViewport(el) {
     );
 }
 
-// Career Plan Dropdowns
-document.querySelectorAll('.career-header').forEach(header => {
-    header.addEventListener('click', () => {
-        const item = header.parentElement;
-        item.classList.toggle('active');
-    });
-});
-
-// Contact Form Submission
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form values
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Here you would typically send the data to a server
-    console.log('Form submitted:', formData);
-    
-    // Show success message
-    alert('Thank you for your message! I will get back to you soon.');
-    
-    // Reset form
-    contactForm.reset();
-});
-
 // Theme Toggle Functionality
 const themeToggle = document.querySelector('.theme-toggle');
 let darkMode = localStorage.getItem('darkMode') === 'true';
@@ -103,28 +71,9 @@ function updateToggleIcon() {
     }
 }
 
-// Header scroll effect
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.style.padding = '10px 0';
-        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-    } else {
-        header.style.padding = '20px 0';
-        header.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-    }
-});
-
 // Initialize animations on load
 window.addEventListener('load', () => {
     animateSkills();
-    
-    // Set initial header style
-    const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.style.padding = '10px 0';
-        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-    }
 });
 
 // Initialize skill animations on scroll
