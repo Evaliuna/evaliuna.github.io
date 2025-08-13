@@ -130,6 +130,7 @@ nav {
   border-radius: 20px;
   background: var(--gray);
   transition: all 0.3s ease;
+  color: var(--dark);
 }
 
 .theme-toggle:hover {
@@ -183,41 +184,38 @@ nav {
 }
 
 .hero-photo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+  width: 380px;
+  margin: 0 auto;
 }
 
 .profile-photo {
   width: 100%;
-  max-width: 380px;
-  height: auto;
   border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: block;
 }
 
 .photo-social-links {
+  position: absolute;
+  bottom: -25px;
+  right: 20px;
+  background: var(--white);
+  padding: 10px 15px;
+  border-radius: 30px;
+  box-shadow: var(--shadow);
   display: flex;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 12px;
 }
 
 .photo-social-links a {
-  width: 40px;
-  height: 40px;
-  background: var(--white);
   color: var(--primary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  transition: all 0.3s;
 }
 
 .photo-social-links a:hover {
-  background: var(--primary);
-  color: var(--white);
+  color: var(--secondary);
   transform: translateY(-3px);
 }
 
@@ -274,7 +272,6 @@ nav {
 }
 
 /* ===== CERTIFICATES SECTION ===== */
-
 .certificates-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -287,10 +284,12 @@ nav {
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform 0.3s ease;
+  animation: float 6s ease-in-out infinite;
 }
 
 .certificate-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
 .certificate-card img {
@@ -306,59 +305,6 @@ nav {
 .certificate-info h3 {
   margin-bottom: 10px;
   color: var(--primary);
-}
-/* Floating certificate cards animation */
-.certificate-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: float 6s ease-in-out infinite;
-}
-
-.certificate-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* Profile photo and social links positioning */
-.hero-photo {
-    position: relative;
-}
-
-.photo-social-links {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--white);
-    padding: 10px 20px;
-    border-radius: 30px;
-    box-shadow: var(--shadow);
-    z-index: 10;
-}
-
-/* Dark mode fixes */
-body.dark-mode .hero-title,
-body.dark-mode .hero-subtitle,
-body.dark-mode .hero-description {
-    color: var(--dark) !important;
-}
-
-body.dark-mode .photo-social-links {
-    background: var(--white);
-}
-
-/* Floating animation */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-}
-
-/* Delay animations for each certificate */
-.certificates-grid .certificate-card:nth-child(1) {
-    animation-delay: 0s;
-}
-.certificates-grid .certificate-card:nth-child(2) {
-    animation-delay: 0.5s;
 }
 
 /* ===== PROJECTS SECTION ===== */
@@ -506,8 +452,20 @@ body.dark-mode .nav-links a {
 }
 
 body.dark-mode .hero-title,
+body.dark-mode .hero-subtitle,
 body.dark-mode .hero-description {
   color: var(--dark);
+}
+
+body.dark-mode .photo-social-links {
+  background: var(--white);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -522,7 +480,7 @@ body.dark-mode .hero-description {
   }
   .hero-photo {
     order: 1;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
 }
 
@@ -555,6 +513,9 @@ body.dark-mode .hero-description {
   .hero-title {
     font-size: 2.5rem;
   }
+  .hero-photo {
+    width: 300px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -569,5 +530,9 @@ body.dark-mode .hero-description {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+  }
+  .photo-social-links {
+    right: 50%;
+    transform: translateX(50%);
   }
 }
