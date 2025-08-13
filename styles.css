@@ -1,4 +1,3 @@
-EVA, [13.08.2025 11:13]
 /* ===== VARIABLES ===== */
 :root {
   --primary: #6c63ff;
@@ -251,7 +250,6 @@ nav {
   z-index: 20;
 }
 
-EVA, [13.08.2025 11:13]
 .photo-social-links a {
   width: 50px;
   height: 50px;
@@ -504,7 +502,6 @@ EVA, [13.08.2025 11:13]
   color: var(--primary);
 }
 
-EVA, [13.08.2025 11:13]
 .contact-item {
   display: flex;
   align-items: center;
