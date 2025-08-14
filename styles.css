@@ -222,9 +222,9 @@ nav {
 /* Profile photo container */
 .hero-photo {
   position: relative;
-  width: 460px;
-  height: 560px;
-  margin: 0 auto 0 40px;
+  width: 480px;
+  height: 565px;
+  margin: 0 auto 0 50px;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0,0,0,0.6);
@@ -245,28 +245,25 @@ nav {
   box-shadow: 0 25px 50px rgba(0,0,0,0.8);
 }
 
-/* Social links beneath profile photo */
-.photo-social-links {
-  position: absolute;
-  bottom: -15px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px 15px;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  display: flex;
-  gap: 15px;
+.photo-social-links a {
+  color: var(--white);     /* white color or you can use var(--primary) */
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  border-radius: 50%;      /* optional shape */
+  padding: 6px;            /* small clickable area without background */
+  background: rgba(255, 255, 255, 0.1); /* optional subtle transparent hover background */
 }
 
 .photo-social-links a {
-  color: var(--primary);
-  font-size: 1.4rem;
-  transition: all 0.3s ease;
+  background: transparent;
+  padding: 0;
 }
 
 .photo-social-links a:hover {
   color: var(--secondary);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px;
 }
 
 /* = ABOUT SECTION = */
