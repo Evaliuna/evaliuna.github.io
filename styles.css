@@ -224,7 +224,7 @@ nav {
   position: relative;
   width: 450px;
   height: 555px;
-  margin: 0 auto;
+  margin: 0 auto 0 40px;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0,0,0,0.6);
