@@ -245,25 +245,28 @@ nav {
   box-shadow: 0 25px 50px rgba(0,0,0,0.8);
 }
 
-.photo-social-links a {
-  color: var(--white);     /* white color or you can use var(--primary) */
-  font-size: 1.5rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-  border-radius: 50%;      /* optional shape */
-  padding: 6px;            /* small clickable area without background */
-  background: rgba(255, 255, 255, 0.1); /* optional subtle transparent hover background */
+/* Social links beneath profile photo */
+.photo-social-links {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 15px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: flex;
+  gap: 15px;
 }
 
 .photo-social-links a {
-  background: transparent;
-  padding: 0;
+  color: var(--primary);
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
 }
 
 .photo-social-links a:hover {
   color: var(--secondary);
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.15);
-  padding: 6px;
 }
 
 /* = ABOUT SECTION = */
