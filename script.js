@@ -1,105 +1,98 @@
 // Mobile Menu Toggle
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
-
 menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+  navLinks.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a link
+// Close mobile menu when clicking on any nav link
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-    });
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
 });
 
-// Smooth scrolling for navigation links
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
 });
 
 // Animate skill bars on scroll
 const skillBars = document.querySelectorAll('.skill-progress');
-
 function animateSkills() {
-    skillBars.forEach(bar => {
-        const width = bar.getAttribute('data-width');
-        if (isElementInViewport(bar)) {
-            bar.style.width = width + '%';
-        }
-    });
-}
-
-function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.top <= (window.innerHeight || document.documentElement.clientHeight)
-    );
-}
-
-// Theme Toggle Functionality
-// Add this to your existing theme toggle functionality
-function updateDarkModeElements() {
-    // Ensure profile name and home section are visible in dark mode
-    if (darkMode) {
-        document.querySelector('.hero-title').style.color = '#f8f9fa';
-        document.querySelector('.hero-subtitle').style.color = '#f8f9fa';
-        document.querySelector('.hero-description').style.color = '#f8f9fa';
-    } else {
-        document.querySelector('.hero-title').style.color = '';
-        document.querySelector('.hero-subtitle').style.color = '';
-        document.querySelector('.hero-description').style.color = '';
+  skillBars.forEach(bar => {
+    const width = bar.getAttribute('data-width');
+    if (isElementInViewport(bar)) {
+      bar.style.width = width + '%';
     }
+  });
 }
 
-// Update the theme toggle event listener to include this
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    darkMode = !darkMode;
-    localStorage.setItem('darkMode', darkMode);
-    updateToggleIcon();
-    updateDarkModeElements(); // Add this line
-});
+// Animate career timeline on scroll
+function animateCareerTimeline() {
+  const items = document.querySelectorAll('.career-item');
+  items.forEach(item => {
+    if (isElementInViewport(item)) {
+      item.classList.add('visible');
+    }
+  });
+}
 
-// Call this on initial load too
-updateDarkModeElements();
+// Check if element is in viewport
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return rect.top <= (window.innerHeight || document.documentElement.clientHeight) - 100;
+}
+
+// Theme toggle functionality
 const themeToggle = document.querySelector('.theme-toggle');
 let darkMode = localStorage.getItem('darkMode') === 'true';
 
-// Apply saved theme
-if (darkMode) {
+function updateToggleIcon() {
+  const icon = themeToggle.querySelector('i');
+  const text = themeToggle.querySelector('span');
+  if (darkMode) {
+    icon.classList.replace('fa-moon', 'fa-sun');
+    text.textContent = 'Light Mode';
+    document.body.style.background = ''; // fallback to original background in dark mode
+  } else {
+    icon.classList.replace('fa-sun', 'fa-moon');
+    text.textContent = 'Dark Mode';
+    // Reapply gradient animation background
+    document.body.style.background = '';
+  }
+}
+
+function applyDarkMode() {
+  if (darkMode) {
     document.body.classList.add('dark-mode');
-    updateToggleIcon();
+  } else {
+    document.body.classList.remove('dark-mode');
+  }
+  updateToggleIcon();
 }
 
 themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    darkMode = !darkMode;
-    localStorage.setItem('darkMode', darkMode);
-    updateToggleIcon();
+  darkMode = !darkMode;
+  localStorage.setItem('darkMode', darkMode);
+  applyDarkMode();
 });
 
-function updateToggleIcon() {
-    const icon = themeToggle.querySelector('i');
-    const text = themeToggle.querySelector('span');
-    if (darkMode) {
-        icon.classList.replace('fa-moon', 'fa-sun');
-        text.textContent = 'Light Mode';
-    } else {
-        icon.classList.replace('fa-sun', 'fa-moon');
-        text.textContent = 'Dark Mode';
-    }
-}
-
-// Initialize animations on load
 window.addEventListener('load', () => {
-    animateSkills();
+  animateSkills();
+  animateCareerTimeline();
+  applyDarkMode();
 });
 
-// Initialize skill animations on scroll
-window.addEventListener('scroll', animateSkills);
+window.addEventListener('scroll', () => {
+  animateSkills();
+  animateCareerTimeline();
+});
