@@ -754,3 +754,15 @@ body.dark-mode .form-control:focus {
 body.dark-mode footer {
   color: rgba(255, 255, 255, 0.5);
 }
+
+body.dark-mode .about-content,
+body.dark-mode .about-text,
+body.dark-mode .about-text h3,
+body.dark-mode .about-text p,
+body.dark-mode .skills,
+body.dark-mode .skill-item,
+body.dark-mode .skill-info,
+body.dark-mode .skill-percent {
+  color: #eee; 
+}
+
