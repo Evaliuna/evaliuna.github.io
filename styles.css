@@ -222,7 +222,7 @@ nav {
 /* Profile photo container */
 .hero-photo {
   position: relative;
-  width: 380px;
+  width: 450px;
   margin: 0 auto;
   border-radius: 15px;
   overflow: hidden;
@@ -232,7 +232,7 @@ nav {
 .profile-photo {
   display: block;
   width: 100%;
-  height: 380px;
+  height: 450px;
   object-fit: cover;
   user-select: none;
   transition: transform 0.3s ease;
