@@ -233,7 +233,7 @@ nav {
 .profile-photo {
   display: block;
   width: 100%;
-  height: 560px;
+  height: 565px;
   object-fit: cover;
   user-select: none;
   transition: transform 0.3s ease;
