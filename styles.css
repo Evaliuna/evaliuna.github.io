@@ -624,3 +624,133 @@ footer {
     transform: translateX(50%);
   }
 }
+
+/* = DARK MODE = */
+body.dark-mode {
+  --primary: #8c79ff;
+  --secondary: #6a57d1;
+  --dark: #f0f0f0;         /* light text */
+  --light: #121212;        /* background dark */
+  --white: #1a1a1a;
+  --gray: #333333;
+  background: linear-gradient(270deg, #121212, #1c1c1c, #121212);
+  color: var(--dark);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode header {
+  background: rgba(20, 20, 20, 0.85);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .nav-links a {
+  color: #ddd;
+}
+
+body.dark-mode .nav-links a:hover {
+  color: var(--primary);
+}
+
+body.dark-mode .theme-toggle {
+  background: rgba(255, 255, 255, 0.15);
+  color: #eee;
+}
+
+body.dark-mode .btn {
+  background: var(--primary);
+  color: #121212;
+  border-color: var(--primary);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode .btn:hover {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+body.dark-mode .btn-outline {
+  background: transparent;
+  color: var(--gray);
+  border-color: var(--gray);
+}
+
+body.dark-mode .btn-outline:hover {
+  background: var(--primary);
+  color: #121212;
+  border-color: var(--primary);
+}
+
+body.dark-mode .hero-text,
+body.dark-mode .hero-title,
+body.dark-mode .hero-subtitle,
+body.dark-mode .hero-description {
+  color: #eee;
+  text-shadow: none;
+}
+
+body.dark-mode .photo-social-links {
+  background: rgba(40, 40, 40, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .photo-social-links a {
+  color: var(--primary);
+}
+
+body.dark-mode .photo-social-links a:hover {
+  color: var(--secondary);
+}
+
+body.dark-mode .certificate-card,
+body.dark-mode .project-card {
+  background: rgba(40, 40, 40, 0.7);
+  box-shadow: 0 15px 35px rgba(10, 10, 10, 0.8);
+}
+
+body.dark-mode .certificate-info,
+body.dark-mode .project-info {
+  color: #eee;
+}
+
+body.dark-mode .career-content {
+  background: rgba(60, 60, 60, 0.85);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+  color: #eee;
+}
+
+body.dark-mode .career-year {
+  background: var(--secondary);
+  box-shadow: 0 0 15px var(--secondary);
+  color: #eee;
+}
+
+body.dark-mode .contact-content {
+  color: #eee;
+}
+
+body.dark-mode .contact-info,
+body.dark-mode .contact-form {
+  color: #ddd;
+}
+
+body.dark-mode .form-control {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+body.dark-mode .form-control:focus {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+body.dark-mode footer {
+  color: rgba(255, 255, 255, 0.5);
+}
